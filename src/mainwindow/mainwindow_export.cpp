@@ -582,7 +582,7 @@ void MainWindow::exportAux(QString fileName, QImage::Format format, int quality,
 	}
 
 	QRectF source = itemsBoundingRect;  // m_currentGraphicsView->scene()->itemsBoundingRect();
-	QGraphicsItem * watermark = m_currentGraphicsView->addWatermark(":resources/images/watermark_fritzing_outline.svg");
+	QGraphicsItem * watermark = NULL;
 	if (watermark) {
 		watermark->setPos(source.right() - watermark->boundingRect().width(), source.bottom());
 		source.adjust(0, 0, 0, watermark->boundingRect().height());
@@ -670,7 +670,7 @@ void MainWindow::printAux(QPrinter &printer, bool removeBackground, bool paginat
 	QRectF source = itemsBoundingRect;  // m_currentGraphicsView->scene()->itemsBoundingRect();
     DebugDialog::debug("items bounding rect", source);
     DebugDialog::debug("scene items bounding rect", m_currentGraphicsView->scene()->itemsBoundingRect());
-	QGraphicsItem * watermark = m_currentGraphicsView->addWatermark(":resources/images/watermark_fritzing_outline.svg");
+	QGraphicsItem * watermark = NULL;
 	if (watermark) {
 		watermark->setPos(source.right() - watermark->boundingRect().width(), source.bottom());
 		source.adjust(0, 0, 0, watermark->boundingRect().height());
